@@ -1,27 +1,19 @@
-#Import statements:
-    #discord python library
+#Import statements (discord + discord commands modules):
 import discord
+from discord.ext import commands
 
-    #helps with initialization + discord bot functionality
-import os
-from dotenv import load_dotenv
-
-tokenFile = open('/Users/gokul/discordBot/token.txt')
-
-#load_dotenv()
-
-#find discord token from env file in same area as discordBot.py
+#load a token from a file and assign
+tokenFile = open('/Users/gokul/token.txt')
 token = list(tokenFile)[0]
 
-#initialize client
-bot = discord.Client()
+#initialize client + prefix for commands
+bot = commands.Bot(command_prefix = "*")
 
 #define bot events:
 @bot.event
 async def sayHello(message):
-    if message.content == "Hello":
+    if message.content == "Hello!":
         await message.channel.send("Hello! I hope you are well")
-
 
 #run the bot
 bot.run(token)
