@@ -1,2 +1,0 @@
-#Import statements
-import discord
