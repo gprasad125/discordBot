@@ -1,13 +1,17 @@
 #Import statements:
-import discord #discord python library
+    #discord python library
+import discord
 
-import os #helps with initialization + discord bot functionality
+    #helps with initialization + discord bot functionality
+import os
 from dotenv import load_dotenv
+
+tokenFile = open('/Users/gokul/discordBot/token.txt')
 
 #load_dotenv()
 
 #find discord token from env file in same area as discordBot.py
-#token = os.getenv("DISCORD_TOKEN")
+token = list(tokenFile)[0]
 
 #initialize client
 bot = discord.Client()
@@ -20,4 +24,4 @@ async def sayHello(message):
 
 
 #run the bot
-bot.run('NzgyNDE1NzM4MTQ0MDMwNzYw.X8L3cA.SW7mqqrJluV_GB_AAMNO8y0IUAM')
+bot.run(token)
